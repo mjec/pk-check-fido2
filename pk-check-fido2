@@ -40,8 +40,8 @@ if ! command -v fido2-assert > /dev/null || ! command -v fido2-token > /dev/null
 fi
 
 if ! [ -r "$1" ]; then
-printf "ERROR: unable to read credential file '%s'.\n\n" "$1" >&2
-usage >&2
+  printf "ERROR: unable to read credential file '%s'.\n\n" "$1" >&2
+  usage >&2
   exit 3
 fi
 
