@@ -1,0 +1,12 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "com.example.something.Some.Action") {
+        try {
+            var result = polkit.spawn(["/usr/local/bin/pk-check-fido2", "/etc/polkit-1/fido2-credential", action.id]);
+            if (result == "OK\n") {
+                return polkit.Result.YES;
+            }
+        } catch (e) {
+            polkit.log(e);
+        }
+    }
+});
