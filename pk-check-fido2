@@ -62,7 +62,7 @@ dd if=/dev/urandom bs=1 count=32 2>/dev/null | base64 > "$assertion_param_file"
 
 printf "%s\n" "$relying_party" >> "$assertion_param_file"
 
-head -1 "$cred_file" >> "$assertion_param_file"
+head -n 1 "$cred_file" >> "$assertion_param_file"
 
 tail -n +2 "$cred_file" > "$pubkey_file"
 
