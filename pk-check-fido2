@@ -67,11 +67,7 @@ head -n 1 "$cred_file" >> "$assertion_param_file"
 tail -n +2 "$cred_file" > "$pubkey_file"
 
 for token in $(fido2-token -L | cut -f 1 -d ':'); do
-  set +e
-  fido2-assert -G -i "$assertion_param_file" "$token" | fido2-assert -V "$pubkey_file" es256
-  assert_exit_code="$?"
-  set -e
-  if [ $assert_exit_code -eq 0 ]; then
+  if fido2-assert -G -i "$assertion_param_file" "$token" | fido2-assert -V "$pubkey_file" es256; then
     printf "OK\n"
     exit 0
   fi
