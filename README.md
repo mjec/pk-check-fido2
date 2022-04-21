@@ -1,5 +1,5 @@
 # pk-check-fido2
-A script for use with polkit.spawn() to require a user to verify their presnce with a FIDO2 key
+A script for use with polkit.spawn() to require a user to verify their presence with a FIDO2 key
 
 I use this together with [1Password's SSH agent](https://developer.1password.com/docs/ssh/agent/) to allow me to authorize use of an SSH key by tapping my FIDO2 authenticator (Yubikey). However in principle this could be used anywhere polkit is used.
 
